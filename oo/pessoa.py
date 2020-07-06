@@ -17,3 +17,7 @@ if __name__ == '__main__':
 
     for filho in p.filhos:
         print("Nome dependente: {} - Idade: {}".format(filho.nome, filho.idade))
+
+    print(f1.__dict__)
+    print(f2.__dict__)
+    print(p.__dict__)
