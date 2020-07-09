@@ -21,7 +21,7 @@ from atores import Obstaculo, Porco, PassaroVermelho, PassaroAmarelo, DESTRUIDO,
 from fase import Fase, Ponto, EM_ANDAMENTO, VITORIA, DERROTA
 
 class FaseTestes(TestCase):
-    def teste_acabou_com_porcos_e_passaros(self):
+    def test_acabou_com_porcos_e_passaros(self):
         fase = Fase()
         porcos = [Porco(1, 1) for i in range(2)]  # criando 2 porcos
         passaros = [PassaroAmarelo(1, 1) for i in range(2)]  # criando 2 pássaros
@@ -46,7 +46,7 @@ class FaseTestes(TestCase):
         self.assertEqual(EM_ANDAMENTO, fase.status(),
                          'Com Porco ativo e com pássaro para lançar, o jogo não deveria acabar')
 
-    def teste_status(self):
+    def test_status(self):
         fase = Fase()
         porcos = [Porco(1, 1) for i in range(2)]
         passaros = [PassaroAmarelo(1, 1) for i in range(2)]
@@ -77,7 +77,7 @@ class FaseTestes(TestCase):
         self.assertEqual(VITORIA, fase.status(),
                          'Sem porco ativo, o jogo deveria acabar com vitória')
 
-    def teste_lancar_passaro_sem_erro_quando_nao_existe_passaro(self):
+    def test_lancar_passaro_sem_erro_quando_nao_existe_passaro(self):
         passaro_vermelho, passaro_amarelo = PassaroVermelho(1, 1), PassaroAmarelo(1, 1)
         fase = Fase()
         fase.adicionar_passaro(passaro_vermelho, passaro_amarelo)
@@ -95,7 +95,7 @@ class FaseTestes(TestCase):
         self.assertEqual(math.radians(45), passaro_amarelo._angulo_de_lancamento)
         self.assertEqual(3, passaro_amarelo._tempo_de_lancamento)
 
-    def teste_intervalo_de_colisao_padrão(self):
+    def test_intervalo_de_colisao_padrão(self):
         '''
         Método que testa se o intervalo de colisão da Fase é repassado aos atores. Padrão de intervalo é 1
         '''
@@ -108,7 +108,7 @@ class FaseTestes(TestCase):
         self.assertEqual(DESTRUIDO, passaro.status)
         self.assertEqual(DESTRUIDO, porco.status)
 
-    def teste_intervalo_de_colisao_nao_padrao(self):
+    def test_intervalo_de_colisao_nao_padrao(self):
         '''
         Método que testa se o intervalo de colisão da Fase é repassado aos atores. valor testado: 31
         '''
@@ -121,7 +121,7 @@ class FaseTestes(TestCase):
         self.assertEqual(DESTRUIDO, passaro.status)
         self.assertEqual(DESTRUIDO, porco.status)
 
-    def teste_calcular_pontos(self):
+    def test_calcular_pontos(self):
         fase_exemplo = criar_fase_exemplo()
         expected = set([Ponto(3, 3, 'A'), Ponto(3, 3, 'A'), Ponto(31, 10, 'O'), Ponto(78, 1, '@'),
                         Ponto(70, 1, '@'), Ponto(3, 3, 'V')])

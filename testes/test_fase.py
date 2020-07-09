@@ -66,7 +66,7 @@ class PassaroFake(AtorFake):
 
 
 class FaseTestes(TestCase):
-    def teste_adicionar_obstaculo(self):
+    def test_adicionar_obstaculo(self):
         fase = Fase()
         self.assertListEqual([], fase._obstaculos)
         obstaculo = ObstaculoFake()
@@ -78,7 +78,7 @@ class FaseTestes(TestCase):
         self.assertListEqual([obstaculo, obstaculo1, obstaculo2],
                              fase._obstaculos)
 
-    def teste_adicionar_porco(self):
+    def test_adicionar_porco(self):
         fase = Fase()
         self.assertListEqual([], fase._porcos)
         porco = PorcoFake()
@@ -89,7 +89,7 @@ class FaseTestes(TestCase):
         fase.adicionar_porco(porco1, porco2)
         self.assertListEqual([porco, porco1, porco2], fase._porcos)
 
-    def teste_adicionar_passaro(self):
+    def test_adicionar_passaro(self):
         fase = Fase()
         self.assertListEqual([], fase._passaros)
         passaro = PassaroFake()
@@ -100,11 +100,11 @@ class FaseTestes(TestCase):
         fase.adicionar_passaro(passaro1, passaro2)
         self.assertListEqual([passaro, passaro1, passaro2], fase._passaros)
 
-    def teste_acabou_sem_porcos(self):
+    def test_acabou_sem_porcos(self):
         fase = Fase()
         self.assertEqual(VITORIA, fase.status())
 
-    def teste_acabou_com_porcos_e_passaros(self):
+    def test_acabou_com_porcos_e_passaros(self):
         fase = Fase()
         porcos = [PorcoFake(1, 1) for _ in range(2)]  # criando 2 porcos
         passaros = [PassaroFake(1, 1) for _ in range(2)]  # criando 2 pássaros
@@ -131,7 +131,7 @@ class FaseTestes(TestCase):
                          'Com Porco ativo e com pássaro para lançar, o jogo '
                          'não deveria acabar')
 
-    def teste_status(self):
+    def test_status(self):
         fase = Fase()
         porcos = [PorcoFake(1, 1) for _ in range(2)]
         passaros = [PassaroFake(1, 1) for _ in range(2)]
@@ -164,7 +164,7 @@ class FaseTestes(TestCase):
         self.assertEqual(VITORIA, fase.status(),
                          'Sem porco ativo, o jogo deveria acabar com vitória')
 
-    def teste_lancar_passaro_sem_erro_quando_nao_existe_passaro(self):
+    def test_lancar_passaro_sem_erro_quando_nao_existe_passaro(self):
         passaros = [PassaroFake(1, 1) for _ in range(2)]
         fase = Fase()
         fase.adicionar_passaro(*passaros)
@@ -179,7 +179,7 @@ class FaseTestes(TestCase):
         self.assertTrue(passaros[0].foi_lancado())
         self.assertTrue(passaros[1].foi_lancado())
 
-    def teste_intervalo_de_colisao_padrao(self):
+    def test_intervalo_de_colisao_padrao(self):
         '''
         Método que testa se o intervalo de colisão da Fase é repassado aos
         atores. Padrão de intervalo é 1
@@ -197,7 +197,7 @@ class FaseTestes(TestCase):
         self.assertEqual(1, passaro.intervalo_colisao)
         self.assertEqual(1, porco.intervalo_colisao)
 
-    def teste_intervalo_de_colisao_nao_padrao(self):
+    def test_intervalo_de_colisao_nao_padrao(self):
         '''
         Método que testa se o intervalo de colisão da Fase é repassado aos
         atores. valor testado: 31

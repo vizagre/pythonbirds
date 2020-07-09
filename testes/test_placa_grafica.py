@@ -8,12 +8,12 @@ from templates import FRAMES
 
 
 class TestesDoMotor(TestCase):
-    def teste_inverter_coordenadas(self):
+    def test_inverter_coordenadas(self):
         self.assertTupleEqual((0, placa_grafica.ALTURA - 1), placa_grafica.normalizar_coordenadas(0, 0))
         self.assertTupleEqual((3, placa_grafica.ALTURA - 2), placa_grafica.normalizar_coordenadas(3, 1))
         self.assertTupleEqual((10, 0), placa_grafica.normalizar_coordenadas(10, placa_grafica.ALTURA - 1))
 
-    def teste_desenhar_frame_vazio(self):
+    def test_desenhar_frame_vazio(self):
         class PontoCartesiano():
             def __init__(self, x, y, caracter):
                 self.caracter = caracter
