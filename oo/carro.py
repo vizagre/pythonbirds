@@ -1,6 +1,6 @@
 """
 Você deve criar uma classe carro que vai possuir
-dois atributos compostos por outras duas classes:
+dois atributos compostos por outras duas classes: 
 1) Motor
 2) Direção
 O Motor terá a responsabilidade de controlar a velocidade.
