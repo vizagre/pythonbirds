@@ -10,7 +10,7 @@ Ele oferece os seguintes atributos:
 3) Método frear que deverá decrementar a velocidade em duas unidades
 A Direção terá a responsabilidade de controlar a direção. Ela oferece
 os seguintes atributos:
-1) Valor de diração com valores possíveis: Norte, Sul, Leste, Oeste.
+1) Valor de direção com valores possíveis: Norte, Sul, Leste, Oeste.
 2) Método girar_a_direita
 2) Método girar_a_esquerda
   N
@@ -36,7 +36,7 @@ O   L
     >>> motor.frear()
     >>> motor.velocidade
     0
-    >>> # Testando Direcao
+    >>> # Testando Direção
     >>> direcao = Direcao()
     >>> direcao.valor
     'Norte'
